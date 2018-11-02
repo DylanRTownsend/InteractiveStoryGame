@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="deathScreen">
+<audio src="Music/m000.mp3" id="deathSound"></audio>	
+<img id="deathSkull" src="images/000.jpg">
+<p id="deathText"> Death Welcomes You!</p>
+</div>
+<!-- IN-GAME STATS -->
+<div class="stats">
+<p id="life">Life: </p>
+<p id="lifeValue"></p>
+
+<p id="armour">Armour: </p>
+<p id="armourValue"></p>
+
+
+
+<p id="attack">Attack: </p>
+<p id="attackValue"></p>
+
+
+
+<p id="gold">Gold: </p>
+<p id="goldValue"></p>
+<p id="attackMessages"> </p>
+
+</div>
+<br/>
+<div>
+	<p id="attackMessages"> </p>
+</div>
+
+<!-- IMAGES -->
+<div class="imagesStyle">
+	
+<!-- BACKGROUNDS -->
+<img id="openScene0_0" src="images/001.jpg">
+<img id="openScene0_1" src="images/002.jpg">
+<img id="openScene0_2" src="images/003.jpg">
+<img id="openScene0_3" src="images/004.jpg">
+
+
+<!-- CHARACTERS -->
+<img id="bandit0_0" src="images/513.png">
+<img id="hoodedLady" src="images/514.png">
+<img id="innKeeper" src="images/515.png">
+</div>
+
+<!-- START -->
+<!-- FIRST PAGE -->
+
+<div id="box0">
+<p id="txt0_0">Here we stand upon the precipice of beauty.</p>
+<p id="txt0_1">But let us stare not at this wondrous landscape for long.</p>
+<p id="txt0_2">There is much to do, and of time we have little.</p>
+<button onclick="nextChap.onwards()" id="option0_0">Let's go.</button>
+<img class="moveon" id="m0"src="images/MoButton.svg">
+</div>
+
+<!-- SECOND PAGE -->
+
+<div id="box1">
+<p id="txt1_0">When in the woods 'tis always wise to watch one's step.<p>
+<p id="txt1_1">Wild beasts, so hideous the naked eye could not bare to gaze upon,</p>
+<p id="txt1_2"> roam amongst vile witches and other vicious creatures.</p> 
+<p id="txt1_3"> And were thou to avoid these, then thou might run into...<p>
+<p id=txt1_4>BANDITS!!!</p>
+<button onclick="fightTime.letsFight()" id="option1_0">Fight!!!</button>
+
+</div>
+<div id="box2">
+<a id="fightTxt0" onclick="pressAttack()">Attack</a>
+<a id="fightTxt1">Defend</a>
+<a id="fightTxt2" onclick="pressRun()">Run</a>
+<a id="fightTxt3">Beg For Mercy</a>
+</div>
+
+<div id="patheticMercy">
+<p id="mercyMessage"></p>
+<p id="mercyMessage2"></p>
+<p id="mercyMessage3"></p>
+<img class="moveon" id="m2"src="images/MoButton.svg">
+</div>
+
+<div id="victoryBox">
+<p id="victoryMessage"></p>
+</div>
+
+<div id="speechBox">
+<p id="speechMessage"></p>
+<p id="speechMessage1"></p>
+<p id="speechMessage2"></p>
+<p id="speechMessage3"></p>
+<button id="op0_0"></button>
+<button id="op0_1"></button>
+<button id="op0_2"></button>
+</div>
+
+<div id="box2">
+<a id="fightTxt0" onclick="pressAttack1()">Attack</a>
+<a id="fightTxt1" onclick="pressDefend1()">Defend</a>
+<a id="fightTxt2" onclick="pressRun1()">Run</a>
+<a id="fightTxt3" onclick="pressMercy1()">Beg For Mercy</a>
+</div>
+
+<script>
+
+// ****** OPENING - PAGE1 ******
+	setTimeout(function() {
+		var a0_0 = document.getElementById("txt0_0").innerHTML;
+		txt0_0.style.visibility = "visible";
+		}, 200);
+
+ 	setTimeout(function() {
+		var a0_1 = document.getElementById("txt0_1").innerHTML;
+		txt0_1.style.visibility = "visible";
+		}, 400);
+
+	setTimeout(function() {
+		var a0_2 = document.getElementById("txt0_2").innerHTML;
+		txt0_2.style.visibility = "visible";
+		}, 600);
+
+	setTimeout(function() {
+		var a0_0 = document.getElementById("option0_0").innerHTML;
+		option0_0.style.visibility = "visible";
+		}, 800);
+
+		var nextChap = {
+			onwards: function(change) {
+				txt0_0.style.visibility = "hidden";
+				txt0_1.style.visibility = "hidden";
+				txt0_2.style.visibility = "hidden";
+				option0_0.style.visibility = "hidden";
+				openScene0_0.style.visibility = "hidden";
+			}
+		};
+		
+			document.getElementById("option0_0").addEventListener("click", function(){
+				setTimeout(function() {
+					var rep0_1 = openScene0_0.parentNode.replaceChild(document.getElementById("openScene0_1"),openScene0_0 );
+
+					openScene0_1.style.display = "grid";
+					var repo0_2 = box0.parentNode.replaceChild(
+						document.getElementById("box1"), box0);
+					box1.style.display = "block";
+				}, 100);
+			});
+
+// ****** OPENING PAGE 2 ******
+			document.getElementById("option0_0").addEventListener("click", function(){ 
+				setTimeout(function() {
+		var a1_0 = document.getElementById("txt1_0").innerHTML;
+		txt1_0.style.display = "block";
+	}, 200);
+	
+	setTimeout(function() {
+		var a1_0 = document.getElementById("txt1_1").innerHTML;
+		txt1_1.style.display = "block";
+	}, 500);
+			setTimeout(function() {
+		var a1_0 = document.getElementById("txt1_2").innerHTML;
+		txt1_2.style.display = "block";
+
+	}, 800);
+			setTimeout(function() {
+		var a1_0 = document.getElementById("txt1_3").innerHTML;
+		txt1_3.style.display = "block";
+
+	}, 900);
+			setTimeout(function() {
+		var a1_0 = document.getElementById("txt1_4").innerHTML;
+		txt1_0.style.display = "none";
+		txt1_1.style.display = "none";
+		txt1_2.style.display = "none";
+		txt1_3.style.display = "none";
+		txt1_4.style.display = "block";
+		bandit0_0.style.visibility = "visible"
+
+	}, 1330);
+			setTimeout(function() {
+		var a1_0 = document.getElementById("option1_0").innerHTML;
+		txt1_4.style.display = "none";
+		option1_0.style.display = "block";
+	}, 1500);
+});
+
+// ****** FIGHT ******		
+	var fightTime = {
+		letsFight: function() {
+			var repo0_3 = box1.parentNode.replaceChild(
+			document.getElementById("box2"), box1);
+			box2.style.display = "grid";
+			fightTxt0.style.visibility = "visible";
+			fightTxt1.style.visibility = "visible";
+			fightTxt2.style.visibility = "visible";
+			fightTxt3.style.visibility = "visible";
+		}
+	};
+
+//****** ATTACK *****
+	var yourAttackP = document.getElementById("attackValue");
+	var yourAttackNum = document.createTextNode(5);
+	yourAttackP.appendChild(yourAttackNum);
+	var yourAttack = Number(document.getElementById("attackValue").innerText);
+
+//****** LIFE ******
+	var yourLifeP = document.getElementById("lifeValue");
+	var yourLifeNum = document.createTextNode(30);
+	yourLifeP.appendChild(yourLifeNum);
+	var yourLife = Number(document.getElementById("lifeValue").innerText);	
+
+//***** ARMOUR ******
+	var yourArmourP = document.getElementById("armourValue");
+	var yourArmourNum = document.createTextNode(0);
+	yourArmourP.appendChild(yourArmourNum);
+	var yourArmour = Number(document.getElementById("armourValue").innerText);
+
+//****** GOLD ******
+	var yourGoldP = document.getElementById("goldValue");
+	var yourGoldNum = document.createTextNode(0);
+	yourGoldP.appendChild(yourGoldNum);
+	var yourGold = Number(document.getElementById("goldValue").innerText);
+
+
+	
+	
+	var enemyLife = {
+		bandit1Life: 20,
+		dogLife: 30,
+		tricksterLife: 100,
+		};
+
+	var enemyAttack = {
+	bandit1Attack: 3,
+	dogAttack: 2,
+	tricksterAttack: 10,
+};
+//****** FIGHT ******
+		function pressAttack() {
+		var att = enemyLife.bandit1Life -= yourAttack;
+		var attB = yourLife -= enemyAttack.bandit1Attack;
+		var a1_2 = document.getElementById("attackMessages").innerHTML;
+		document.querySelector("#attackMessages").innerHTML = "You attacked your foe and did " + yourAttack + " damage";
+		attackMessages.style.display = "block"
+			setTimeout(function() {
+		document.querySelector("#lifeValue").innerText = attB;
+		document.querySelector("#attackMessages").innerHTML = "Your enemy attacked back, dealing " + enemyAttack.bandit1Attack + " damage";
+		}, 3000),
+		setTimeout(function() {
+			attackMessages.style.display ="none";
+		}, 5000);
+		if (yourLife < 1) {
+			deathScreen.style.display = "block";
+			deathSkull.style.display = "block";
+			deathText.style.display = "block";
+			deathSound.play();
+}
+if (enemyLife.bandit1Life === 0) {
+		bandit0_0.style.display = "none";
+		 "Bandit is dead";
+		 setTimeout(function() {
+		 var repo0_4 = box2.parentNode.replaceChild(
+		 	document.getElementById("victoryBox"), box2);
+		 victoryBox.style.display = "block";
+		 document.querySelector("#victoryMessage").innerHTML = "!VICTORY!";
+			document.querySelector("#attackMessages").innerHTML = "You found Five Gold coins on his body.";
+			var addG3 = yourGold += 5;
+			document.querySelector("#goldValue").innerText = addG3;
+				attackMessages.style.display = "block"
+				attackMessages.style.color = "gold";
+			}, 3000);
+			setTimeout(function() {
+				attackMessages.style.display ="none";
+			}, 7000);
+
+			setTimeout(function(){
+			var repo0_5 = victoryBox.parentNode.replaceChild(document.getElementById("speechBox"), victoryBox);
+			speechBox.style.display = "block";
+			hoodedLady.style.display = "block";
+			document.querySelector("#speechMessage").innerHTML = "I saw your fight. That was pretty amazing.";
+			document.querySelector("#speechMessage1").innerHTML = "Here, drink this potion, it will replenish you health.";
+		}, 8000);
+			setTimeout(function(){
+				speechMessage.style.display = "none";
+				
+
+
+//****** THREE OPTIONS ******
+				document.querySelector("#op0_0").innerHTML = "How kind of you.(Drink the potion)";				
+				document.querySelector("#op0_1").innerHTML = "No thank you. (Leave and keep going)";
+				document.querySelector("#op0_2").innerHTML = "Yes I will take the potion, and everything else you have. (Fight)";
+				op0_0.style.display = "block";
+				op0_1.style.display = "block";
+				op0_2.style.display = "block";
+			}, 12000);
+		}
+};
+//****** MERCY ******
+			document.getElementById("fightTxt3").onclick = function() {
+			mercy1()};
+			function mercy1() { 
+			var repo0_3 = box2.parentNode.replaceChild(
+			document.getElementById("patheticMercy"), box2);
+			patheticMercy.style.display = "block"
+			document.querySelector("#mercyMessage").innerHTML = "You are pathetic."; 
+			document.querySelector("#mercyMessage2").innerHTML = "I would not waste my time with a penniless fool such as yourself.";
+			document.querySelector("#mercyMessage3").innerHTML = "Take this gold coin and don't let me ever see your face again.";
+			setTimeout(function(){
+				var addG1 = yourGold += 1;
+				document.querySelector("#goldValue").innerText = addG1;
+				bandit0_0.style.display = "none";
+			}, 3000);
+		};
+
+//****** DEFEND ******
+	
+		document.getElementById("fightTxt1").onclick = function() {
+			defend1()};
+			function defend1() {
+			var def0 = enemyAttack.bandit1Attack - yourArmour;
+			var def1 = yourLife -= def0;
+			var def2 = document.getElementById("attackMessages").innerHTML;
+		document.querySelector("#attackMessages").innerHTML = "You defended with " + yourArmour + " armour." + " Your foe did " + enemyAttack.bandit1Attack + " damage."
+		document.querySelector("#lifeValue").innerText = def1;
+		attackMessages.style.display = "block"
+		setTimeout(function(){
+			attackMessages.style.display = "none"
+		}, 3000);
+		if (yourLife === 0) {
+		deathScreen.style.display = "block";
+		deathSkull.style.display = "block";
+		deathText.style.display = "block";
+		deathSound.play();
+		}
+	};
+	
+//****** RUN ******
+			document.getElementById("fightTxt2").onclick = function() {
+			run1()};
+			function run1(){
+			document.querySelector("#attackMessages").innerHTML = "You can't run right now.";
+			attackMessages.style.display = "block";
+			setTimeout(function(){
+			attackMessages.style.display = "none"
+		}, 3000);
+		};
+
+
+
+//****** THREE OPTIONS AFTER MEETING TRICKSTER ******
+	
+
+//****** OPTION ONE ******
+				document.getElementById("op0_0").onclick = function(){drinkDie()};
+				function drinkDie() {
+					document.querySelector("#speechMessage").innerHTML = "You drink deeply, finsihing the potion quickly.";
+					document.querySelector("#speechMessage1").innerHTML = " A wicked smile spreads across her face.";
+					document.querySelector("#speechMessage2").innerHTML = "Your body feels weak... you know you have made a mistake...";
+					op0_0.style.display = "none";
+					op0_1.style.display = "none";
+					op0_2.style.display = "none";
+
+					var death = yourLife -= yourLife;
+					document.querySelector("#lifeValue").innerText = death;
+					setTimeout(function() {	
+					if (yourLife < 1) {
+			deathScreen.style.display = "block";
+			deathSkull.style.display = "block";
+			deathText.style.display = "block";		
+				}
+			}, 7000);	
+		}
+
+//****** OPTION THREE ******
+		document.getElementById("op0_2").onclick = function() {
+			fightDie()};
+			function fightDie() {
+				document.querySelector("#speechMessage").innerHTML = "You have made a grave mistake...";
+					speechMessage.style.top = "50px"
+					speechMessage1.style.display = "none"
+					speechMessage2.style.display = "none"
+					op0_0.style.display = "none";
+					op0_1.style.display = "none";
+					op0_2.style.display = "none";
+
+			setTimeout(function(){
+				speechMessage.style.display = "none"
+				speechBox.style.display = "none";
+				box2.style.display = "grid";
+				fightTxt0.style.visibility = "visible";
+				fightTxt1.style.visibility = "visible";
+				fightTxt2.style.visibility = "visible";
+				fightTxt3.style.visibility = "visible";
+				attackMessages.style.color = "red";
+			}, 3000);
+		};
+
+			function pressAttack1(){
+			var att1 = enemyLife.tricksterLife -= yourAttack;
+			var attB1 = yourLife -= enemyAttack.tricksterAttack;
+			var a1_3 = document.getElementById("attackMessages").innerHTML;
+			document.querySelector("#attackMessages").innerHTML = "You attacked your foe and did " + yourAttack + " damage";
+			attackMessages.style.display = "block"
+			setTimeout(function() {
+		document.querySelector("#lifeValue").innerText = attB1;
+		document.querySelector("#attackMessages").innerHTML = "Your enemy attacked back, dealing " + enemyAttack.tricksterAttack + " damage";
+		}, 3000),
+		setTimeout(function() {
+			attackMessages.style.display = "none";
+		}, 5000);
+		if (yourLife < 1) {
+			deathScreen.style.display = "block";
+			deathSkull.style.display = "block";
+			deathText.style.display = "block";
+			deathSound.play();
+		}
+		};	
+		function pressMercy1(){
+			document.querySelector("#attackMessages").innerHTML = "THERE WILL BE NO MERCY FOR YOU!!!";
+			attackMessages.style.display = "block"
+			setTimeout(function(){
+				attackMessages.style.display = "none"
+			}, 3000);
+		};
+		function pressDefend1() {
+			defTr = enemyAttack.tricksterAttack - yourLife;
+			defTr1 = yourLife -= defTr;
+			document.querySelector("#attackMessages").innerHTML = "You defended with " + yourArmour + " armour." + " Your foe did " + enemyAttack.tricksterAttack + " damage.";
+			attackMessages.style.display = "block"
+			setTimeout(function(){
+				attackMessages.style.display = "none"
+			}, 3000);
+			if (yourLife < 1) {
+			deathScreen.style.display = "block";
+			deathSkull.style.display = "block";
+			deathText.style.display = "block";
+			deathSound.play();
+		}
+		};
+		function pressRun1(){
+			document.querySelector("#attackMessages").innerHTML = "She dragged you back into the fight.";
+			attackMessages.style.display = "block";
+			setTimeout(function(){
+			attackMessages.style.display = "none";
+			}, 4000);
+		};
+
+//****** OPTION TWO ******
+		document.getElementById("op0_1").onclick = function() {
+			dontDrink()};
+			function dontDrink() {
+				document.querySelector("#speechMessage1").innerHTML = "Ha, ha, ha.";
+				document.querySelector("#speechMessage2").innerHTML = "Maybe we will meet again traveller...";
+					op0_0.style.display = "none";
+					op0_1.style.display = "none";
+					op0_2.style.display = "none";
+					setTimeout(function(){
+					hoodedLady.style.display = "none";
+					}, 3000);
+					setTimeout(function(){
+					openScene0_1.style.display = "none";
+					openScene0_2.style.display = "block";
+					speechMessage.style.display = "block";
+					document.querySelector("#speechMessage").innerHTML = "Night had settled in before you finally arrived at a village.";
+					document.querySelector("#speechMessage1").innerHTML = "The name of which you knew not.";
+					document.querySelector("#speechMessage2").innerHTML = "Where to go from here is up to you traveler."
+					}, 5000);
+					setTimeout(function(){
+					document.querySelector("#op0_0").innerHTML = "Find an inn to rest at for the night.";
+					document.querySelector("#op0_1").innerHTML = "Find somewhere to get a drink.";
+					document.querySelector("#op0_2").innerHTML = "Head off into the forest and sleep against a tree."
+					speechMessage.style.display = "none";
+					speechMessage1.style.display = "none";
+					speechMessage2.style.display = "none";
+					op0_0.style.display = "block";
+					op0_1.style.display = "block";
+					op0_2.style.display = "block";	
+					}, 9000);
+			};
+			document.getElementById("op0_0").onclick = function() {
+				findInn()};
+				function findInn() {
+					var js = document.createElement("script");
+
+					js.type = "text/javascript";
+					js.src = "file2.js";
+
+					document.body.appendChild(js);
+				};
+		
+
+</script>
+
+
+
+
+
+</body>
+</html>
