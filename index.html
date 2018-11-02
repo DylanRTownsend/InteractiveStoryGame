@@ -99,6 +99,7 @@
 <button id="op0_0"></button>
 <button id="op0_1"></button>
 <button id="op0_2"></button>
+<button id="op0_3"></button>
 </div>
 
 <div id="box2">
@@ -373,9 +374,9 @@ if (enemyLife.bandit1Life === 0) {
 			deathScreen.style.display = "block";
 			deathSkull.style.display = "block";
 			deathText.style.display = "block";		
-				}
+				};
 			}, 7000);	
-		}
+		};
 
 //****** OPTION THREE ******
 		document.getElementById("op0_2").onclick = function() {
@@ -441,7 +442,7 @@ if (enemyLife.bandit1Life === 0) {
 			deathSkull.style.display = "block";
 			deathText.style.display = "block";
 			deathSound.play();
-		}
+		};
 		};
 		function pressRun1(){
 			document.querySelector("#attackMessages").innerHTML = "She dragged you back into the fight.";
@@ -472,18 +473,18 @@ if (enemyLife.bandit1Life === 0) {
 					document.querySelector("#speechMessage2").innerHTML = "Where to go from here is up to you traveler."
 					}, 5000);
 					setTimeout(function(){
-					document.querySelector("#op0_0").innerHTML = "Find an inn to rest at for the night.";
+					document.querySelector("#op0_3").innerHTML = "Find an inn to rest at for the night.";
 					document.querySelector("#op0_1").innerHTML = "Find somewhere to get a drink.";
 					document.querySelector("#op0_2").innerHTML = "Head off into the forest and sleep against a tree."
 					speechMessage.style.display = "none";
 					speechMessage1.style.display = "none";
 					speechMessage2.style.display = "none";
-					op0_0.style.display = "block";
+					op0_3.style.display = "block";
 					op0_1.style.display = "block";
 					op0_2.style.display = "block";	
 					}, 9000);
 			};
-			document.getElementById("op0_0").onclick = function() {
+			document.getElementById("op0_3").onclick = function() {
 				findInn()};
 				function findInn() {
 					var js = document.createElement("script");
@@ -492,7 +493,7 @@ if (enemyLife.bandit1Life === 0) {
 					js.src = "file2.js";
 
 					document.body.appendChild(js);
-				};
+				}
 		
 
 </script>
