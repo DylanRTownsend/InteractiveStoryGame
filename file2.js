@@ -12,7 +12,7 @@
 			document.querySelector("#speechMessage").innerHTML = "Welcome weary traveler.";
 			document.querySelector("#speechMessage1").innerHTML = "The kitchen is closed, and so is the bar,";
 			document.querySelector("#speechMessage2").innerHTML = "but I can offer you a warm bed for the night.";
-			document.querySelector("#speechMessage3").innerHTML = "What to say you?";
+			document.querySelector("#speechMessage3").innerHTML = "What say you?";
 
 
 			setTimeout(function(){
