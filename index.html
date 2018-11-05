@@ -231,27 +231,19 @@
 
 	
 	
-	var enemyLife = {
-		bandit1Life: 20,
-		dogLife: 30,
-		tricksterLife: 100,
-		};
+	var enemyLife = [20];
 
-	var enemyAttack = {
-	bandit1Attack: 3,
-	dogAttack: 2,
-	tricksterAttack: 10,
-};
+	var enemyAttack = [3];
 //****** FIGHT ******
 		function pressAttack() {
-		var att = enemyLife.bandit1Life -= yourAttack;
-		var attB = yourLife -= enemyAttack.bandit1Attack;
+		var att = enemyLife[0] -= yourAttack;
+		var attB = yourLife -= enemyAttack[0];
 		var a1_2 = document.getElementById("attackMessages").innerHTML;
 		document.querySelector("#attackMessages").innerHTML = "You attacked your foe and did " + yourAttack + " damage";
 		attackMessages.style.display = "block"
 			setTimeout(function() {
 		document.querySelector("#lifeValue").innerText = attB;
-		document.querySelector("#attackMessages").innerHTML = "Your enemy attacked back, dealing " + enemyAttack.bandit1Attack + " damage";
+		document.querySelector("#attackMessages").innerHTML = "Your enemy attacked back, dealing " + enemyAttack[0] + " damage";
 		}, 3000),
 		setTimeout(function() {
 			attackMessages.style.display ="none";
@@ -262,9 +254,11 @@
 			deathText.style.display = "block";
 			deathSound.play();
 }
-if (enemyLife.bandit1Life === 0) {
+if (enemyLife[0] <= 0) {
 		bandit0_0.style.display = "none";
-		 "Bandit is dead";
+		if (enemyLife[0] <= yourAttack){
+		enemyAttack[0] = 0;
+		 "Bandit is dead";}
 		 setTimeout(function() {
 		 var repo0_4 = box2.parentNode.replaceChild(
 		 	document.getElementById("victoryBox"), box2);
@@ -299,6 +293,7 @@ if (enemyLife.bandit1Life === 0) {
 				op0_0.style.display = "block";
 				op0_1.style.display = "block";
 				op0_2.style.display = "block";
+				op0_3.style.display = "none";
 			}, 12000);
 		}
 };
@@ -324,10 +319,10 @@ if (enemyLife.bandit1Life === 0) {
 		document.getElementById("fightTxt1").onclick = function() {
 			defend1()};
 			function defend1() {
-			var def0 = enemyAttack.bandit1Attack - yourArmour;
+			var def0 = enemyAttack[0] - yourArmour;
 			var def1 = yourLife -= def0;
 			var def2 = document.getElementById("attackMessages").innerHTML;
-		document.querySelector("#attackMessages").innerHTML = "You defended with " + yourArmour + " armour." + " Your foe did " + enemyAttack.bandit1Attack + " damage."
+		document.querySelector("#attackMessages").innerHTML = "You defended with " + yourArmour + " armour." + " Your foe did " + enemyAttack[0] + " damage."
 		document.querySelector("#lifeValue").innerText = def1;
 		attackMessages.style.display = "block"
 		setTimeout(function(){
@@ -383,6 +378,7 @@ if (enemyLife.bandit1Life === 0) {
 			fightDie()};
 			function fightDie() {
 				document.querySelector("#speechMessage").innerHTML = "You have made a grave mistake...";
+					speechMessage.style.display = "block";
 					speechMessage.style.top = "50px"
 					speechMessage1.style.display = "none"
 					speechMessage2.style.display = "none"
@@ -403,14 +399,16 @@ if (enemyLife.bandit1Life === 0) {
 		};
 
 			function pressAttack1(){
-			var att1 = enemyLife.tricksterLife -= yourAttack;
-			var attB1 = yourLife -= enemyAttack.tricksterAttack;
+				enemyLife[0] = 100;
+				enemyAttack[0] = 10;
+			var att1 = enemyLife[0] -= yourAttack;
+			var attB1 = yourLife -= enemyAttack[0];
 			var a1_3 = document.getElementById("attackMessages").innerHTML;
 			document.querySelector("#attackMessages").innerHTML = "You attacked your foe and did " + yourAttack + " damage";
 			attackMessages.style.display = "block"
 			setTimeout(function() {
 		document.querySelector("#lifeValue").innerText = attB1;
-		document.querySelector("#attackMessages").innerHTML = "Your enemy attacked back, dealing " + enemyAttack.tricksterAttack + " damage";
+		document.querySelector("#attackMessages").innerHTML = "Your enemy attacked back, dealing " + enemyAttack[0] + " damage";
 		}, 3000),
 		setTimeout(function() {
 			attackMessages.style.display = "none";
