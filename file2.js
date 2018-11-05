@@ -1,7 +1,8 @@
 //****** OPTION FIND AN INN ******
-			op0_3.style.display = "none";
+			op0_0.style.display = "none";
 			op0_1.style.display = "none";
 			op0_2.style.display = "none";
+			op0_3.style.display = "none";
 			openScene0_2.style.display = "none";
 			openScene0_3.style.display = "block";
 			innKeeper.style.display = "block";
